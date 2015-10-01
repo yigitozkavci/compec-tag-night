@@ -11,8 +11,16 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-    @team = Team.find(params[:id])
-    render json: @team
+    team = Team.find(params[:id])
+    members = team.members.select(:name, :surname)
+    member_names = []
+    members.each do |m|
+      member_names.push(m.name + " " + m.surname)
+    end
+    team = team.attributes
+
+    team[:members] = member_names
+    render json: team
   end
 
   # GET /teams/new
