@@ -27,7 +27,9 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
   end
-
+  def image
+    render plain: Team.find(params[:id]).image.path
+  end
   # GET /teams/1/edit
   def edit
   end
@@ -46,6 +48,8 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
+    #render plain: params[:fileUpload]
+
     @team = Team.new(team_params)
 
     respond_to do |format|
@@ -91,6 +95,6 @@ class TeamsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def team_params
-      params[:team]
+      params.permit(:name, :image)
     end
 end

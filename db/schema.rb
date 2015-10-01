@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151001201327) do
+ActiveRecord::Schema.define(version: 20151001233233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,6 @@ ActiveRecord::Schema.define(version: 20151001201327) do
     t.integer "team_id"
     t.string  "name"
     t.string  "surname"
-  end
-
-  create_table "submitted_task_answers", force: :cascade do |t|
-    t.integer "task_id"
-    t.text    "answer"
-    t.boolean "is_correct"
-    t.integer "team_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -52,9 +45,13 @@ ActiveRecord::Schema.define(version: 20151001201327) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string  "name"
-    t.string  "img_url"
-    t.integer "pts"
+    t.string   "name"
+    t.string   "img_url"
+    t.integer  "pts"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end

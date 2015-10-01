@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :tasks
       resources :teams
       get '/teams/:id/undone-tasks', to: 'teams#show_undone_tasks'
+      get '/teams/:id/image', to: 'teams#image'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
