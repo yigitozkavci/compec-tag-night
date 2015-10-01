@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  q_type: MyString
+  lat: 1.5
+  long: 1.5
+  pts: 1
+  q_text: MyText
+  img_url: MyString
+  q_answers: MyText
+  q_correct_answer: MyString
+
+two:
+  title: MyString
+  q_type: MyString
+  lat: 1.5
+  long: 1.5
+  pts: 1
+  q_text: MyText
+  img_url: MyString
+  q_answers: MyText
+  q_correct_answer: MyString
