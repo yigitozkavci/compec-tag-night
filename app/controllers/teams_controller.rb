@@ -23,7 +23,18 @@ class TeamsController < ApplicationController
   # GET /teams/1/edit
   def edit
   end
-
+  # Bu bir sanattır.(Fuck Yeah!)
+  def show_undone_tasks
+    arr = []
+    answers = Team.find(params[:id]).answers.collect.each do |a|
+      arr.push(a.task_id)
+    end
+    tasks = Task.select(:id, :title, :lat, :long, :pts).where('id NOT IN (?)', arr)
+    render json: tasks
+    #unless Task.answers.where(team_id: @team.id).take.empty?
+     # render json: 
+    #end
+  end
   # POST /teams
   # POST /teams.json
   def create

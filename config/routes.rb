@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     scope 'v1' do
       resources :tasks
       resources :teams
+      get '/teams/:id/undone-tasks', to: 'teams#show_undone_tasks'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
