@@ -12,6 +12,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     team = Team.find(params[:id])
+    image_url = team.image.url
     members = team.members.select(:name, :surname)
     member_names = []
     members.each do |m|
@@ -20,6 +21,7 @@ class TeamsController < ApplicationController
     team = team.attributes
 
     team[:members] = member_names
+    team[:image] = image_url
     render json: team
   end
 
